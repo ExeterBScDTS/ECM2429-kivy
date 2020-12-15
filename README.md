@@ -1,2 +1,2 @@
 # ECM2429-kivy
-Python desktop application examples uning Kivy
+Python desktop application examples using Kivy
