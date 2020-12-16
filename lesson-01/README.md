@@ -15,9 +15,10 @@ might want to consider creating a "virtual environment", see <https://kivy.org/d
 python -m pip install kivy[full] kivy_examples
 ```
 
-Note that ```python``` might be ```python3``` or even a full path, for example on my system it is ```/usr/bin/python3```.  The simplest way to determine what it should be on your system is to check that you have selected the correct version of Python in VS Code.  If the Python extension is enabled the selected Python version is shown towards the bottom left of the IDE window. Click on this and all available versions will be shown along with the full path to the Python interpreter.
+Note that ```python``` might be ```python3``` or even a full path, for example on my Windows system it is shown as ```~/AppData/Local/Programs/Python/Python39/python.exe```.
+```C:/Users/ms843/AppData/Local/Programs/Python/Python39/python.exe```.  The simplest way to determine what it should be on your system is to check that you have selected the correct version of Python in VS Code.  If the Python extension is enabled the selected Python version is shown towards the bottom left of the IDE window. Click on this and all available versions will be shown along with the full path to the Python interpreter.
 
-On Linux the examples are install in ```~/.local/share/kivy-examples``` for a user install.
+On Linux the path to the Python interpreter is typically ```/usr/bin/python3```. The Kivy examples are install in ```~/.local/share/kivy-examples``` for a user install.
 
 ## Running the first example
 
