@@ -1,5 +1,18 @@
 #:kivy 1.0.9
 
+<MyTextInput>:
+    #size: 50, 50
+    Label:  
+        pos: root.pos
+        size: root.width/2, root.height
+        text: 'XX'
+    TextInput:
+        pos: root.x + root.width/2, root.y
+        size: root.width/2, root.height
+        text: 'BB'
+        multiline: False
+        #on_text : print('Got text', self.text)
+        on_text: root.print_text(self.text)
 
 <Example>:
     BoxLayout:
@@ -15,10 +28,11 @@
             size_hint: 0.5, 1.0
             Label:
                 text: 'AA'
-            TextInput:
-                text: 'BB'
-                multiline: False
-                on_text : print('Got text', self.text)
+            MyTextInput:
+                id: textA
+                #text: 'BB'
+                #multiline: False
+                #on_text : print('Got text', self.text)
             Button:
                 text: 'start'
                 on_press: print('Button press')
