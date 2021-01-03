@@ -1,3 +1,8 @@
+# Ignore the examples
+kivy-examples
+# Ignore my VS Code settings (this is where the Python path is saved)
+.vscode/settings.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -127,3 +132,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
