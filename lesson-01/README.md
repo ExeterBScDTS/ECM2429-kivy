@@ -4,7 +4,7 @@ These instructions assume you are using the Visual Studio Code IDE with the Pyth
 
 ## Check Python scripts can run in IDE
 
-Open the file ```lesson-01/code/main.py``` in an editor window and towards the top right of the editor window there should be a green arrow.  Click on the arrow and this will run the Python script, opening a new terminal window.  You should expect to see and error message as the Kivy library has not been installed.
+Open the file ```lesson-01/code/main.py``` in an editor window and towards the top right of the editor window there should be a green arrow.  Click on the arrow and this will run the Python script, opening a new terminal window.  You should expect to see an error message, as the Kivy library has not been installed.
 
 ## Install Kivy
 
