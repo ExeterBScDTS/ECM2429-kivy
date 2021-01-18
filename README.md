@@ -18,3 +18,8 @@ Take time to read the code and understand how it works.
 
 Use this as a starting point for your own user interface design.   Trying building a form that requires a name, email address, and password.   How would you add checks to enure that the passwords is secure, e.g. 8 to 12 characters with at least 1 digit and a symbol?
 
+## Kivy architecture
+
+<https://kivy.org/doc/stable/guide/architecture.html>
+
+![Kivy architecture](architecture.png)
