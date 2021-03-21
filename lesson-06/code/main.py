@@ -10,7 +10,15 @@ from datetime import datetime
 
 queues = (None,None)
 
+response = ""
+
 class MyTextInput(Widget):
+    def __init__(self, **kwargs):
+        super(type(self),self).__init__(**kwargs)
+        Clock.schedule_interval(self.update_my_widget, 1 / 10.)
+
+    def update_my_widget(self,delta):
+        self.ids.searchResult.text = response
 
     def web_search(self, query, button):
         queues["query"].put_nowait(query)
@@ -41,13 +49,15 @@ class MyTask:
                 await asyncio.sleep(1)
 
         while True:
+            global response
             query = await queues["query"].get()
             print("Really searching for...", query)
             r = requests.get('https://api.duckduckgo.com', 
                 params={'q': query, 'format': 'json'})
             print(r)
             #print(r.text)
-            print(r.json()['AbstractText'])
+            abstract = r.json()['AbstractText']
+            response = query + "\n" + abstract
             print(r.json()['AbstractURL'])
 
 
