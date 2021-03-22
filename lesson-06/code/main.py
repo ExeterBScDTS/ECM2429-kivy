@@ -1,4 +1,13 @@
 #
+# Kivy example calling a web API using requests.
+# Demonstrates how the UI will freeze while fetching data.
+# Set delay_test_seconds to a small integer value (say 5)
+# To see the effect
+#
+# Michael Saunby, March 2021
+
+delay_test_seconds = 0
+
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.clock import Clock
@@ -6,7 +15,7 @@ from kivy.clock import Clock
 from datetime import datetime
 import requests
 
-delay_test_seconds = 10
+
 
 class MyTextInput(Widget):
     '''See search.kv'''
