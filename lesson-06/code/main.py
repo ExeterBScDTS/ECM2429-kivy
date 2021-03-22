@@ -10,7 +10,7 @@ from datetime import datetime
 
 queues = (None,None)
 
-response = ""
+response = {"query":"","text":"","url":""}
 
 class MyTextInput(Widget):
     def __init__(self, **kwargs):
@@ -18,7 +18,26 @@ class MyTextInput(Widget):
         Clock.schedule_interval(self.update_my_widget, 1 / 10.)
 
     def update_my_widget(self,delta):
-        self.ids.searchResult.text = response
+        words = response["text"].split()
+        text = ""
+        line_len = 0
+        max_len = 100
+        line_count = 0
+        max_lines = 5
+        for w in words:
+            if line_count > max_lines:
+                text += "..."
+                break
+            if line_len + 1 + len(w) < max_len:
+                text += " " + w
+                line_len += 1 + len(w)
+            else:
+                line_count += 1
+                text += "\n"
+                text += w
+                line_len = len(w)
+
+        self.ids.searchResult.text = response["query"] +"\n" + text + "  " + response["url"]
 
     def web_search(self, query, button):
         queues["query"].put_nowait(query)
@@ -57,8 +76,10 @@ class MyTask:
             print(r)
             #print(r.text)
             abstract = r.json()['AbstractText']
-            response = query + "\n" + abstract
-            print(r.json()['AbstractURL'])
+            response["query"] = query
+            response["text"] = abstract
+            url = r.json()['AbstractURL']
+            response["url"] = url
 
 
 class SearchApp(App):
