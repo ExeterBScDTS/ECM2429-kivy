@@ -13,8 +13,8 @@ from kivy.uix.widget import Widget
 from kivy.clock import Clock
 
 from datetime import datetime
-import requests
 
+from searchtask import SearchTask
 
 
 class MyTextInput(Widget):
@@ -62,27 +62,6 @@ class MyClock(Widget):
 class MyLayout(Widget):
     '''See search.kv'''
     pass
-
-class SearchTask:
-    def __init__(self):
-        self.response = {"query":"","text":"","url":""}
-
-    def search(self,query):
-        r = requests.get('https://api.duckduckgo.com', 
-            params={'q': query, 'format': 'json'})
-        if r:
-            abstract = r.json()['AbstractText']
-            self.response["query"] = query
-            self.response["text"] = abstract
-            url = r.json()['AbstractURL']
-            self.response["url"] = url
-        
-        if delay_test_seconds:
-            from time import sleep
-            sleep(delay_test_seconds)
-
-    def get_response(self):
-        return self.response
 
 class SearchApp(App):
     '''
