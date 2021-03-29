@@ -1,0 +1,73 @@
+#:kivy 1.0.9
+
+# Notes
+# -----
+# Line comments, like these, can be used.
+# Indentation matters.
+# Python statments, e.g. print() are allowed, 
+# and are useful for testing.
+
+<MyTextInput>:
+    TextInput:
+        id: searchQuery
+        pos: root.x, root.y + root.height/2
+        size: 3/4 * root.width, root.height/2
+        text: ""
+        multiline: False
+        #on_text: root.print_text(self.text)
+    Button:
+        id: searchButton
+        pos: root.x + 3/4 * root.width, root.y + root.height/2
+        size: root.width/4, root.height/2
+        text: "search"
+        on_press: root.web_search(searchQuery.text, searchButton)
+    Label:
+        canvas.before:
+            Color:
+                rgb: .5, .2, .2
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        id: searchResult
+        pos: root.x, root.y/2
+        size: root.width, root.height/2
+        text: "result"
+
+<MyClock>:
+    Label:
+        pos: root.x, root.y + root.height/2
+        size: root.width, root.height/4
+        text: 'Web search using DuckDuckGo API'
+    Label:
+        id: date
+        pos: root.pos
+        size: root.width/2, root.height/2
+        text: "DATE"
+    Label:
+        id: time
+        pos: root.x + root.width/2, root.y
+        size: root.width/2, root.height/2
+
+<MyLayout>:
+    BoxLayout:
+        size: 800, 600
+        GridLayout:
+            canvas:
+                Color:
+                    rgb: .3, .3, .3   
+                Rectangle:
+                    pos: 0, 0
+                    size: self.size
+            cols: 1
+            
+            MyClock:
+                id: clockA
+            MyTextInput:
+                id: textA
+
+
+            
+            
+
+    
+    
